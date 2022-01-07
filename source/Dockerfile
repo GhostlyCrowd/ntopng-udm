@@ -32,12 +32,12 @@ RUN apt-get update && apt-get --no-install-recommends -y install build-essential
 
 # build nDPI which is required by ntopng
 RUN cd /root \
-        && GIT_SSL_NO_VERIFY=1 git clone https://github.com/ntop/nDPI.git --branch 3.4; cd nDPI; ./autogen.sh; make -j4
+        && GIT_SSL_NO_VERIFY=1 git clone https://github.com/ntop/nDPI.git --branch 4.0-stable; cd nDPI; ./autogen.sh; make -j4
 
 
 # build ntopng
 RUN cd /root \
-        && GIT_SSL_NO_VERIFY=1 git clone https://github.com/ntop/ntopng --branch 4.2 \
+        && GIT_SSL_NO_VERIFY=1 git clone https://github.com/ntop/ntopng --branch 5.0-stable \
         && cd ntopng \
         && ./autogen.sh \
         && ./configure \
